@@ -35,7 +35,7 @@ private:
 
 testArkan::testArkan(){}
 
-testArkan::~testArkan(){}
+testArkan::~testArkan(){delete process;}
 
 void testArkan::test1_caseConvertToFFT()
 {
@@ -255,6 +255,7 @@ void testArkan::test1_caseProcessCmplxFFT()
     QCOMPARE(process->_2bitbuffer[2], 0.556971669197);
     QCOMPARE(process->_2bitbuffer[3], 0.698970019817);
     QCOMPARE(process->_2bitbuffer[4], 0.806391954422);
+
     delete[] data;
 }
 
@@ -397,6 +398,7 @@ void testArkan::test1_caseProcessCmplxFFT()
      QCOMPARE(process->_8bitBuffer[7], 1.74909f);
      QCOMPARE(process->_8bitBuffer[8], 1.720758f);
      QCOMPARE(process->_8bitBuffer[9], 1.70435f);
+     delete[] rowData;
  }
 
  void testArkan::test1_caseProcessCmplxFlt()
@@ -470,6 +472,8 @@ void testArkan::test1_caseProcessCmplxFFT()
     QCOMPARE(process->_8bitBuffer[3], 1.007848f);
     QCOMPARE(process->_8bitBuffer[4], 0.9198019f);
     QCOMPARE(process->_8bitBuffer[5], 0.872389f);
+
+    delete[] rowData;
  }
 
 QTEST_APPLESS_MAIN(testArkan)
